@@ -2,7 +2,12 @@
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Portable way to get script directory (works in both bash and zsh)
+if [ -n "$BASH_SOURCE" ]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+else
+    SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+fi
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Install Zsh
@@ -23,17 +28,31 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Install zsh-autosuggestions plugin
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+AUTOSUGGESTIONS_DIR="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+if [ ! -d "$AUTOSUGGESTIONS_DIR" ]; then
     echo "Installing zsh-autosuggestions..."
-    git clone https://github.com/zsh-users/zsh-autosuggestions \
-        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$AUTOSUGGESTIONS_DIR"
+elif [ ! -d "$AUTOSUGGESTIONS_DIR/.git" ]; then
+    echo "Removing incomplete zsh-autosuggestions installation..."
+    rm -rf "$AUTOSUGGESTIONS_DIR"
+    echo "Installing zsh-autosuggestions..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$AUTOSUGGESTIONS_DIR"
+else
+    echo "zsh-autosuggestions is already installed"
 fi
 
 # Install zsh-syntax-highlighting plugin
-if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+SYNTAX_HIGHLIGHTING_DIR="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+if [ ! -d "$SYNTAX_HIGHLIGHTING_DIR" ]; then
     echo "Installing zsh-syntax-highlighting..."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$SYNTAX_HIGHLIGHTING_DIR"
+elif [ ! -d "$SYNTAX_HIGHLIGHTING_DIR/.git" ]; then
+    echo "Removing incomplete zsh-syntax-highlighting installation..."
+    rm -rf "$SYNTAX_HIGHLIGHTING_DIR"
+    echo "Installing zsh-syntax-highlighting..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$SYNTAX_HIGHLIGHTING_DIR"
+else
+    echo "zsh-syntax-highlighting is already installed"
 fi
 
 echo "Zsh setup complete!"

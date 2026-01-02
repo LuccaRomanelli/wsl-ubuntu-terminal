@@ -2,7 +2,12 @@
 
 # Batch installer for APT packages
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Portable way to get script directory (works in both bash and zsh)
+if [ -n "$BASH_SOURCE" ]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+else
+    SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+fi
 LIST_FILE="$SCRIPT_DIR/packages.list"
 
 if [ ! -f "$LIST_FILE" ]; then
@@ -17,8 +22,15 @@ while IFS= read -r line || [ -n "$line" ]; do
     # Skip empty lines and comments
     [[ -z "$line" || "$line" =~ ^# ]] && continue
 
-    # Call centralized installer
-    $SCRIPT_DIR/install-package.sh $line
+    # Parse package_name and optional binary_name
+    read -r package_name binary_name <<< "$line"
+
+    # Call centralized installer with proper arguments
+    if [ -n "$binary_name" ]; then
+        "$SCRIPT_DIR/install-package.sh" "$package_name" "$binary_name"
+    else
+        "$SCRIPT_DIR/install-package.sh" "$package_name"
+    fi
 done < "$LIST_FILE"
 
 echo
