@@ -1,0 +1,13 @@
+# APT packages for Ubuntu terminal setup
+# Format: package_name [binary_name]
+
+stow
+zsh
+tmux
+git
+curl
+ripgrep rg
+fzf
+fd-find fdfind
+bat batcat
+eza
