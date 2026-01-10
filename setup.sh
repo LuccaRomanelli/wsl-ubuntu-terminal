@@ -8,7 +8,7 @@ echo "=== Ubuntu Terminal Setup ==="
 echo ""
 
 # Step 1: Install Zsh + Oh-My-Zsh + plugins (runs in bash)
-echo "[1/7] Installing Zsh + Oh-My-Zsh + plugins..."
+echo "[1/9] Installing Zsh + Oh-My-Zsh + plugins..."
 bash "$SCRIPT_DIR/install/zsh.sh"
 echo ""
 
@@ -18,29 +18,37 @@ if ! command -v zsh &>/dev/null; then
     exit 1
 fi
 
-# Steps 2-6: Run remaining installations in zsh
-echo "[2/7] Installing core packages..."
+# Steps 2-7: Run remaining installations in zsh
+echo "[2/9] Installing core packages..."
 zsh "$SCRIPT_DIR/apt/install-packages.sh"
 echo ""
 
-echo "[3/7] Installing Starship prompt..."
+echo "[3/9] Installing Neovim Kickstart..."
+zsh "$SCRIPT_DIR/install/nvim.sh"
+echo ""
+
+echo "[4/9] Installing Claude Code..."
+zsh "$SCRIPT_DIR/install/claude-code.sh"
+echo ""
+
+echo "[5/9] Installing Starship prompt..."
 zsh "$SCRIPT_DIR/install/starship.sh"
 echo ""
 
-echo "[4/7] Installing Nerd Font..."
+echo "[6/9] Installing Nerd Font..."
 zsh "$SCRIPT_DIR/install/nerd-font.sh"
 echo ""
 
-echo "[5/7] Installing Tmux + TPM..."
+echo "[7/9] Installing Tmux + TPM..."
 zsh "$SCRIPT_DIR/install/tmux.sh"
 echo ""
 
-echo "[6/7] Installing dotfiles..."
+echo "[8/9] Installing dotfiles..."
 zsh "$SCRIPT_DIR/install/dotfiles.sh"
 echo ""
 
-# Step 7: Set zsh as default shell
-echo "[7/7] Setting Zsh as default shell..."
+# Step 9: Set zsh as default shell
+echo "[9/9] Setting Zsh as default shell..."
 bash "$SCRIPT_DIR/lib/set-shell.sh"
 echo ""
 
