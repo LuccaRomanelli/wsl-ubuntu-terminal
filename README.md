@@ -1,12 +1,13 @@
-# Ubuntu Terminal Setup
+# WSL Ubuntu Terminal Setup
 
-Automated terminal environment setup for Ubuntu, featuring Zsh, Tmux, Starship, and dotfiles management.
+Automated terminal environment setup for Ubuntu on WSL, featuring Zsh, Tmux, Starship, and dotfiles management.
 
 ## Features
 
 - **Zsh**: Modern shell with Oh-My-Zsh framework
 - **Oh-My-Zsh Plugins**: autosuggestions, syntax-highlighting
 - **Starship**: Fast, customizable prompt
+- **fzf**: Fuzzy finder (installed from GitHub releases for latest features)
 - **Nerd Font**: CaskaydiaMono Nerd Font with icon support
 - **Tmux**: Terminal multiplexer with TPM (plugin manager)
 - **Dotfiles**: Automated symlink management using GNU Stow
@@ -15,8 +16,8 @@ Automated terminal environment setup for Ubuntu, featuring Zsh, Tmux, Starship, 
 ## Quick Start
 
 ```bash
-git clone <repo-url> ~/ubuntu-terminal-setup
-cd ~/ubuntu-terminal-setup
+git clone <repo-url> ~/wsl-ubuntu-terminal
+cd ~/wsl-ubuntu-terminal
 ./setup.sh
 ```
 
@@ -33,17 +34,16 @@ After installation completes:
 - git (version control)
 - curl (downloads)
 - ripgrep (fast grep alternative)
-- fzf (fuzzy finder)
 - fd-find (fast find alternative)
 - bat (cat with syntax highlighting)
 - eza (modern ls replacement)
-- jq (JSON processor for terminal configuration)
 
 ### Shell Enhancements
 - Oh-My-Zsh framework
 - zsh-autosuggestions plugin
 - zsh-syntax-highlighting plugin
 - Starship prompt
+- fzf (from GitHub releases, supports --zsh flag)
 - CaskaydiaMono Nerd Font (with icon glyphs)
 
 ### Configurations
@@ -57,19 +57,22 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 ## Installation Process
 
 1. Installs Zsh + Oh-My-Zsh + plugins
-2. Installs core packages (runs in zsh)
-3. Installs Starship prompt (runs in zsh)
-4. Installs CaskaydiaMono Nerd Font (runs in zsh)
-5. Installs Tmux + TPM (runs in zsh)
-6. Clones and stows dotfiles (runs in zsh)
-7. Sets Zsh as default shell
-8. Prompts for logout/reboot
+2. Installs core APT packages
+3. Installs fzf from GitHub releases
+4. Installs Neovim Kickstart
+5. Installs Claude Code
+6. Installs Starship prompt
+7. Installs CaskaydiaMono Nerd Font
+8. Installs Tmux + TPM
+9. Clones and stows dotfiles
+10. Sets Zsh as default shell
 
 ## Manual Installation (Individual Components)
 
 ```bash
 # Install specific components
 ./install/zsh.sh           # Just Zsh setup
+./install/fzf.sh           # Just fzf (from GitHub)
 ./install/starship.sh      # Just Starship
 ./install/nerd-font.sh     # Just Nerd Font
 ./install/tmux.sh          # Just Tmux + TPM
@@ -82,7 +85,7 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 
 ## Requirements
 
-- Ubuntu 20.04 or later (tested on 22.04/24.04)
+- WSL2 with Ubuntu 20.04 or later (tested on 22.04/24.04)
 - sudo privileges
 - Internet connection
 - Git configured for GitHub access (SSH key for dotfiles)

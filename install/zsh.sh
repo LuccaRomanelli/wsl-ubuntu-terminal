@@ -28,7 +28,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Install zsh-autosuggestions plugin
-AUTOSUGGESTIONS_DIR="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+AUTOSUGGESTIONS_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 if [ ! -d "$AUTOSUGGESTIONS_DIR" ]; then
     echo "Installing zsh-autosuggestions..."
     git clone https://github.com/zsh-users/zsh-autosuggestions "$AUTOSUGGESTIONS_DIR"
@@ -42,7 +42,7 @@ else
 fi
 
 # Install zsh-syntax-highlighting plugin
-SYNTAX_HIGHLIGHTING_DIR="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+SYNTAX_HIGHLIGHTING_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 if [ ! -d "$SYNTAX_HIGHLIGHTING_DIR" ]; then
     echo "Installing zsh-syntax-highlighting..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$SYNTAX_HIGHLIGHTING_DIR"
