@@ -54,6 +54,10 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 - gitconfig
 - gitconfig-gitlab
 
+### Personal Repositories
+- Shell scripts from [LuccaRomanelli/shell](https://github.com/LuccaRomanelli/shell) (cloned to ~/shell)
+- Obsidian vault from [LuccaRomanelli/obsidian-vault](https://github.com/LuccaRomanelli/obsidian-vault) (cloned to ~/obsidian-vault)
+
 ## Installation Process
 
 1. Installs Zsh + Oh-My-Zsh + plugins
@@ -65,18 +69,22 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 7. Installs CaskaydiaMono Nerd Font
 8. Installs Tmux + TPM
 9. Clones and stows dotfiles
-10. Sets Zsh as default shell
+10. Clones shell scripts from GitHub
+11. Clones Obsidian vault from GitHub
+12. Sets Zsh as default shell
 
 ## Manual Installation (Individual Components)
 
 ```bash
 # Install specific components
-./install/zsh.sh           # Just Zsh setup
-./install/fzf.sh           # Just fzf (from GitHub)
-./install/starship.sh      # Just Starship
-./install/nerd-font.sh     # Just Nerd Font
-./install/tmux.sh          # Just Tmux + TPM
-./install/dotfiles.sh      # Just dotfiles
+./install/zsh.sh             # Just Zsh setup
+./install/fzf.sh             # Just fzf (from GitHub)
+./install/starship.sh        # Just Starship
+./install/nerd-font.sh       # Just Nerd Font
+./install/tmux.sh            # Just Tmux + TPM
+./install/dotfiles.sh        # Just dotfiles
+./install/shell-scripts.sh   # Just shell scripts
+./install/obsidian-vault.sh  # Just Obsidian vault
 
 # Install packages
 ./apt/install-packages.sh  # Batch install all packages

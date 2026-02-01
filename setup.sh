@@ -8,7 +8,7 @@ echo "=== Ubuntu Terminal Setup ==="
 echo ""
 
 # Step 1: Install Zsh + Oh-My-Zsh + plugins (runs in bash)
-echo "[1/10] Installing Zsh + Oh-My-Zsh + plugins..."
+echo "[1/12] Installing Zsh + Oh-My-Zsh + plugins..."
 bash "$SCRIPT_DIR/install/zsh.sh"
 echo ""
 
@@ -19,40 +19,48 @@ if ! command -v zsh &>/dev/null; then
 fi
 
 # Steps 2-8: Run remaining installations in zsh
-echo "[2/10] Installing core packages..."
+echo "[2/12] Installing core packages..."
 zsh "$SCRIPT_DIR/apt/install-packages.sh"
 echo ""
 
-echo "[3/10] Installing fzf..."
+echo "[3/12] Installing fzf..."
 zsh "$SCRIPT_DIR/install/fzf.sh"
 echo ""
 
-echo "[4/10] Installing Neovim Kickstart..."
+echo "[4/12] Installing Neovim Kickstart..."
 zsh "$SCRIPT_DIR/install/nvim.sh"
 echo ""
 
-echo "[5/10] Installing Claude Code..."
+echo "[5/12] Installing Claude Code..."
 zsh "$SCRIPT_DIR/install/claude-code.sh"
 echo ""
 
-echo "[6/10] Installing Starship prompt..."
+echo "[6/12] Installing Starship prompt..."
 zsh "$SCRIPT_DIR/install/starship.sh"
 echo ""
 
-echo "[7/10] Installing Nerd Font..."
+echo "[7/12] Installing Nerd Font..."
 zsh "$SCRIPT_DIR/install/nerd-font.sh"
 echo ""
 
-echo "[8/10] Installing Tmux + TPM..."
+echo "[8/12] Installing Tmux + TPM..."
 zsh "$SCRIPT_DIR/install/tmux.sh"
 echo ""
 
-echo "[9/10] Installing dotfiles..."
+echo "[9/12] Installing dotfiles..."
 zsh "$SCRIPT_DIR/install/dotfiles.sh"
 echo ""
 
-# Step 10: Set zsh as default shell
-echo "[10/10] Setting Zsh as default shell..."
+echo "[10/12] Cloning shell scripts..."
+zsh "$SCRIPT_DIR/install/shell-scripts.sh"
+echo ""
+
+echo "[11/12] Cloning Obsidian vault..."
+zsh "$SCRIPT_DIR/install/obsidian-vault.sh"
+echo ""
+
+# Step 12: Set zsh as default shell
+echo "[12/12] Setting Zsh as default shell..."
 bash "$SCRIPT_DIR/lib/set-shell.sh"
 echo ""
 
