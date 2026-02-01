@@ -56,6 +56,8 @@ wsl-ubuntu-terminal/
 # Format: package_name [binary_name]
 neovim nvim
 ripgrep rg
+fd-find fdfind
+bat batcat
 ```
 
 ### curl/packages.list
@@ -63,12 +65,15 @@ ripgrep rg
 # Format: <name> <check_command> <install_url>
 mise mise https://mise.run
 starship starship https://starship.rs/install.sh
+nhost nhost https://raw.githubusercontent.com/nhost/cli/main/get.sh
+rclone rclone https://rclone.org/install.sh
 ```
 
 ### npm/packages.list
 ```
 # Format: <package_name> <check_command>
 @anthropic-ai/claude-code claude
+@devcontainers/cli devcontainer
 ```
 
 ### github-releases/packages.list
@@ -76,6 +81,8 @@ starship starship https://starship.rs/install.sh
 # Format: <name> <repo> <binary_name>
 fzf junegunn/fzf fzf
 yazi sxyazi/yazi yazi
+zoxide ajeetdsouza/zoxide zoxide
+lazygit jesseduffield/lazygit lazygit
 ```
 
 ### git/repos.list
@@ -132,7 +139,7 @@ When `FORCE_PULL=true`:
 
 ### Add a New GitHub Release Package
 1. Add to `github-releases/packages.list` with format: `name repo binary_name`
-2. Update `github-releases/install-package.sh` with download URL pattern
+2. Update `github-releases/install-package.sh` with download URL pattern if needed
 3. Run `./github-releases/install-packages.sh`
 
 ### Add a New Git Repository
