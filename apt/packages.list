@@ -24,3 +24,7 @@ fonts-dejavu
 
 # Email
 mutt
+
+# Utilities
+jq
+w3m

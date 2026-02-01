@@ -1,0 +1,7 @@
+# GitHub releases packages
+# Format: <name> <repo> <binary_name>
+
+fzf junegunn/fzf fzf
+yazi sxyazi/yazi yazi
+zoxide ajeetdsouza/zoxide zoxide
+lazygit jesseduffield/lazygit lazygit

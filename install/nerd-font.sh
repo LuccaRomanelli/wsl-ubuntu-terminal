@@ -15,6 +15,13 @@ FONT_NAME="CascadiaMono"
 FONT_VERSION="v3.4.0"
 DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/${FONT_VERSION}/${FONT_NAME}.zip"
 TEMP_DIR="/tmp/nerd-font-install"
+FONTS_DIR="$HOME/.local/share/fonts"
+
+# Check if font is already installed (idempotency check)
+if ls "$FONTS_DIR"/CaskaydiaMono*.ttf &>/dev/null 2>&1; then
+    echo "${FONT_NAME} Nerd Font is already installed"
+    exit 0
+fi
 
 echo "Installing ${FONT_NAME} Nerd Font..."
 
@@ -76,7 +83,6 @@ if [ "$IS_WSL" = true ]; then
     echo "Also installing fonts to WSL Linux..."
 fi
 
-FONTS_DIR="$HOME/.local/share/fonts"
 mkdir -p "$FONTS_DIR"
 
 echo "Installing font files to Linux..."

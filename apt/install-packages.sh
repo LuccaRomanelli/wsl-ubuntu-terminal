@@ -18,10 +18,12 @@ fi
 echo "Installing APT packages from $LIST_FILE..."
 echo
 
-# Add Neovim unstable PPA for latest version
-echo "Adding Neovim unstable PPA..."
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-echo
+# Add Neovim unstable PPA for latest version (only if nvim not installed)
+if ! command -v nvim &>/dev/null; then
+    echo "Adding Neovim unstable PPA..."
+    sudo add-apt-repository ppa:neovim-ppa/unstable -y
+    echo
+fi
 
 while IFS= read -r line || [ -n "$line" ]; do
     # Skip empty lines and comments

@@ -1,0 +1,7 @@
+# Curl-based package installers
+# Format: <name> <check_command> <install_url>
+
+mise mise https://mise.run
+starship starship https://starship.rs/install.sh
+nhost nhost https://raw.githubusercontent.com/nhost/cli/main/get.sh
+rclone rclone https://rclone.org/install.sh
