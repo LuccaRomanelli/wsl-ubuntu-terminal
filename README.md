@@ -44,6 +44,10 @@ After installation completes:
 - zsh-syntax-highlighting plugin
 - Starship prompt
 - fzf (from GitHub releases, supports --zsh flag)
+- yazi (modern terminal file manager)
+- zoxide (smart cd that learns your habits)
+- lazygit (interactive Git TUI)
+- mise (polyglot version manager for node, python, etc.)
 - CaskaydiaMono Nerd Font (with icon glyphs)
 
 ### Configurations
@@ -68,10 +72,14 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 6. Installs Starship prompt
 7. Installs CaskaydiaMono Nerd Font
 8. Installs Tmux + TPM
-9. Clones and stows dotfiles
-10. Clones shell scripts from GitHub
-11. Clones Obsidian vault from GitHub
-12. Sets Zsh as default shell
+9. Installs yazi file manager
+10. Installs zoxide (smart cd)
+11. Installs lazygit (Git TUI)
+12. Installs mise (version manager)
+13. Clones and stows dotfiles
+14. Clones shell scripts from GitHub
+15. Clones Obsidian vault from GitHub
+16. Sets Zsh as default shell
 
 ## Manual Installation (Individual Components)
 
@@ -82,6 +90,10 @@ Dotfiles from [LuccaRomanelli/dotfiles](https://github.com/LuccaRomanelli/dotfil
 ./install/starship.sh        # Just Starship
 ./install/nerd-font.sh       # Just Nerd Font
 ./install/tmux.sh            # Just Tmux + TPM
+./install/yazi.sh            # Just yazi file manager
+./install/zoxide.sh          # Just zoxide (smart cd)
+./install/lazygit.sh         # Just lazygit (Git TUI)
+./install/mise.sh            # Just mise (version manager)
 ./install/dotfiles.sh        # Just dotfiles
 ./install/shell-scripts.sh   # Just shell scripts
 ./install/obsidian-vault.sh  # Just Obsidian vault

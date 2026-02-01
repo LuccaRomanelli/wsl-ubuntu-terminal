@@ -14,4 +14,13 @@ make
 gcc
 unzip
 xclip
-neovim
+neovim nvim
+
+# MD2PDF - Conversão Markdown para PDF
+pandoc
+texlive-xetex xelatex
+texlive-fonts-recommended
+fonts-dejavu
+
+# Email
+mutt
