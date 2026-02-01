@@ -5,6 +5,7 @@ stow
 zsh
 tmux
 git
+gh
 curl
 ripgrep rg
 fd-find fdfind
