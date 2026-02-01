@@ -2,7 +2,7 @@
 
 # Clone Obsidian vault from GitHub
 
-VAULT_REPO="git@github.com:LuccaRomanelli/obsidian-vault.git"
+VAULT_REPO="git@github.com:LuccaRomanelli/obisidian.git"
 VAULT_DIR="$HOME/obsidian-vault"
 
 if [ -d "$VAULT_DIR" ]; then
